@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>FHIR experiences and experiments</title>
+
+		<link rel="stylesheet" href="reveal/dist/reset.css">
+		<link rel="stylesheet" href="reveal/dist/reveal.css">
+		<link rel="stylesheet" href="reveal/dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="reveal/plugin/highlight/monokai.css">
+	</head>
+	<body>
+
+
+
+
+
+
+
+
+
+
+
+ <div class="reveal">
+    <div class="slides">
+
+
+      <div id="marcas-de-agua">
+					<div id="marcadeagua-mongo">
+						<img src="./assets/imgs/FHIR_logo.webp" 
+						style="width: 45px; position: absolute; top: 85%; left: 9%;"  alt="logo fhir"></div>
+					<div id="marcadeagua-lafe"><img src="./assets/imgs/hospital-la-fe.png" 
+						style="width: 100px; position: absolute; top: 85%; left: 0%;"  alt="logo lafe"></div>
+				</div>
+
+      <!-- Título: Apuntes -->
+      <section>
+        <h2>FHIR Experiments and Experiences</h2>
+        <div style="font-size: 0.8em;">
+          <p>In this presentation series, we aim to organize our thoughts, challenges, integration strategies, and lessons learned from working with FHIR.</p>
+        </div>
+        <img src="./assets/imgs/duke_fhir.png" alt="FHIR logo" style="width: 10%; float: right;">
+      </section>
+
+     <!-- Diapositivas Verticales: Información del navegador -->
+      <section>
+        <!-- Diapositiva Padre -->
+       
+
+
+        <!-- Diapositivas Hijas (Verticales) -->
+
+<section>
+  <h3>Overview</h3>
+  <div style="font-size: 0.8em;">
+    <p>We will cover:</p>
+  </div>
+
+  <div style="font-size: 0.8em;">
+    <ul>
+      <li class="fragment">
+        Challenges and integration strategies
+      </li>
+      <li class="fragment">
+        Experiments and tests conducted before, during, and after implementation
+      </li>
+      <li class="fragment">
+        Final thoughts and conclusions from the entire process
+      </li>
+    </ul>
+  </div>
+</section>
+
+      </section>
+
+ 
+  </section>
+      
+
+      </section>
+<!-- Vertical Slides: Tomcat Information -->
+<section>
+    <section>
+        <h2>Challenges</h2>
+        <p>Types of challenges when working with FHIR</p>
+        <div style="font-size: 0.8em;">
+            <ol>
+                <li>
+                    <a href="#structured">EHR structured data conversion</a>
+                </li>
+                <li>
+                    <a href="#unstructured">EHR unstructured data conversion</a>
+                </li>
+                <li>
+                    <a href="#app-integration">Application integration</a>
+                </li>
+                <li>
+                    <a href="#system-integration">System integration</a>
+                </li>
+                <li>
+                    <a href="#transformation-check">Data transformation validation</a>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+
+
+<section id="structured">
+    <h3>Structured Data Conversion</h3>
+    <div style="font-size: 0.8em;">
+        <p>
+            While not extremely challenging by itself, this process requires significant time for:
+            <small>
+            <ul>
+                <li>Code development</li>
+                <li>Application design</li>
+                <li>Database investigation</li>
+                <li>Codification system conversion</li>
+                <li>And so on..</li>
+            </ul>
+            </small>
+
+        </p>
+        <p>
+            An app-by-app approach may prove inefficient for this task.
+        </p>
+    </div>
+</section>
+
+<section id="unstructured">
+    <h3>Unstructured Data Conversion</h3>
+    <div style="font-size: 0.8em;">
+        <p>
+            This presents significant challenges due to numerous variables affecting data transformation:
+        </p>
+        <small>
+        <ul>
+            <li>Multiple file formats and document types</li>
+            <li>Varying text structures and information organization</li>
+            <li>Diverse expressions for the same concepts in plain text</li>
+            <li>Limited, different or partially codification at the same documents</li>
+            <li>And many more</li>
+        </ul>
+        </small>
+        <p>
+            Converting all this to FHIR standards is a complex undertaking.
+        </p>
+    </div>
+</section>
+<section>
+    <h3>Integrations</h3>
+    <div style="font-size: 0.8em;">
+        <p>We found some possible paths for integrations</p>
+    </div>
+</section>
+
+<section id="app-integration">
+    <h3>Small and Focused Application Integration</h3>
+    <div style="font-size: 0.8em;">
+        <p>
+            While manageable for small-scale, short-term projects, this approach has its pros and cons
+        </p>
+        <p>
+            Single-application integration could become inefficient and difficult to scale
+        </p>
+    </div>
+</section>
+
+<section id="system-integration">
+    <h3>Bigger Partial System Integration</h3>
+    <div style="font-size: 0.8em;">
+        <p>
+            Similar to unstructured data challenges, this involves:
+        </p>
+        <small>
+        <ul>
+            <li>Multiple formats and structures</li>
+            <li>Diverse codification systems</li>
+        </ul>
+        </small>
+        <p>
+            Very challenging and time consuming, nearly impossible to achive a complete unnstructured EHR conversion
+        </p>
+    </div>
+</section>
+
+<section id="transformation-check">
+    <h3>Data Conversion Validation</h3>
+    <div style="font-size: 0.8em;">
+        <p>
+Due to the sensitive nature of clinical data, FHIR requires robust systems to ensure data integrity throughout the transformation process.
+        </p>
+        <p>
+            While feasible for small projects, validation becomes increasingly complex with larger system integrations.
+        </p>
+    </div>
+</section>
+
+
+ </section>
+
+
+      </section>
+
+      <!-- Diapositivas Verticales: Información del navegador -->
+
+
+<!-- Vertical Slides: Browser Information -->
+<section>
+    <!-- Parent Slide -->
+    <section>
+        <h2>Experiences and Experiments</h2>
+        <p>List of conducted experiments</p>
+        <div style="font-size: 0.8em;">
+            <ol>
+                <li><a href="#quick-server">HAPI FHIR Quick Server</a></li>
+                <li><a href="#johnnytest">API Testing Framework</a></li>
+                <li><a href="#iot">IoT FHIR Experiment</a></li>
+                <li><a href="#fhirfhandango">FHIR in Workflow Applications</a></li>
+                <li><a href="#synthetic">AI Synthetic Data Generation</a></li>
+                <li><a href="#googleai">AI Clinical Assistant</a></li>
+                <li><a href="#cobaia">FHIR Conversion Using Local AI</a></li>
+                <li><a href="#finetune">Fine-tuning AI with FHIR Data</a></li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Vertical Slides -->
+    <section id="quick-server">
+        <h3>HAPI FHIR JPA Starter Server</h3>
+        <p>This technology provides a quick deployment solution for local FHIR servers</p>
+        <p>Its advantage over other frameworks includes pre-configured FHIR resources and advanced search capabilities</p>
+        <div style="font-size: 0.7em;">
+            <a href="https://github.com/hapifhir/hapi-fhir-jpaserver-starter" target="_blank">
+						<img src="./assets/imgs/hapi.png" style="float: right; width: 10%;" />
+            </a>
+        </div>
+    </section>
+
+    <section id="johnnytest">
+        <h3>API Testing Framework</h3>
+        <p>A lightweight testing framework for custom FHIR APIs</p>
+        <p>Particularly useful for local FHIR servers with non-standard resources</p>
+        <div style="font-size: 0.7em;">
+            <a href="https://gitlab.com/llucbrell/johnny-test" target="_blank">
+						<img src="./assets/imgs/logo_hulafe_test.png" style="float: right; width: 12%;" />
+            </a>
+        </div>
+    </section>
+
+    <section id="iot">
+        <h3>IoT Devices with FHIR</h3>
+        <p>Experiment using ESP32 microcontrollers with C++ libraries for IoT applications</p>
+        <div style="font-size: 0.7em;">
+            <a href="https://github.com/pcsp-hulafe/mqtt-esp32" target="_blank">
+						<img src="./assets/imgs/EspressifLogo.png" style="float: right; width: 8%;" />
+            </a>
+        </div>
+    </section>
+
+    <section id="fhirfhandango">
+        <h3>FHIR in Workflow Applications</h3>
+        <p>Integration possibilities with workflow tools like Node-RED, n8n, and Apache Airflow</p>
+        <p>We explored implementation approaches and potential applications</p>
+        <div style="font-size: 0.7em;">
+            <a href="https://github.com/pcsp-hulafe/fhir-fhandango/tree/master" target="_blank">
+						<img src="./assets/imgs/nodered.ico" style="float: right; width: 8%;" />
+            </a>
+        </div>
+    </section>
+
+    <section id="synthetic">
+        <h3>Synthetic Data Generation</h3>
+        <p>AI-powered approach to create test data using prompt engineering</p>
+        <p>Valuable when real data is limited by availability or privacy constraints</p>
+        <div style="font-size: 0.7em;">
+            <a href="https://github.com/pcsp-hulafe/pacientcia" target="_blank">
+						<img src="./assets/imgs/pdf-icon-on-transparent-background-free-png.webp" style="float: right; width: 10%;" />
+            </a>
+        </div>
+    </section>
+
+    <section id="googleai">
+        <h3>AI Clinical Assistant</h3>
+        <p>Google Notebook-based solution to address clinical queries about the project recommendations</p>
+        <div style="font-size: 0.7em;">
+            <a href="https://notebooklm.google.com/notebook/36618f91-59e7-46f1-b93b-240874ea23d4" target="_blank">
+						<img src="./assets/imgs/notebook-logo.svg" style="float: right ;width: 20%;" />
+            </a>
+        </div>
+    </section>
+
+    <section id="cobaia">
+        <h3>AI-Powered FHIR Conversion API</h3>
+        <p>Experimental API for FHIR data conversion using generative AI and LLMs</p>
+        <div style="font-size: 0.7em;">
+            <a href="https://github.com/llucbrell/cobaia-api" target="_blank">
+						<img src="./assets/imgs/cobaia.png" style="float: right; width: 10%;" />
+            </a>
+        </div>
+    </section>
+
+    <section id="finetune">
+        <h3>Gemma 2 Fine-Tuning</h3>
+        <p>Easy way of fine-tuned Gemma2 model using unsloth, for more accurate FHIR data parsing (€10 cost)</p>
+        <p>Anticipate improved results as local LLM technology evolves</p>
+        <div style="font-size: 0.7em;">
+            <a href="https://colab.research.google.com/drive/1-bpM5oIADU51nBHUG287kqXOLMVwhZeE?usp=sharing" target="_blank">
+						<img src="./assets/imgs/unsloth.png" style="float: right; width: 8%;" />
+            </a>
+        </div>
+    </section>
+</section>
+
+    </section>
+
+
+
+ <section>
+
+
+<section>
+    <h2>Conclusions</h2>
+    <p>Key takeaways from our FHIR implementation experience:</p>
+</section>
+
+<section>
+    <h3>Development Best Practices</h3>
+    <div style="font-size: 0.8em;">
+        <small>
+        <table>
+            <thead>
+                <tr>
+                    <th>Recommendations</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <strong>Start simple:</strong> Begin with a local FHIR server (HAPI FHIR) and tools like Hoppscotch/Postman to understand FHIR workflows
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Wait for maturity:</strong> Avoid coding until the Implementation Guide (IG) reaches advanced stages
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Libraries over prototypes:</strong> Prefer mature libraries (HAPI FHIR) to quick Python prototypes for production
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Validation first:</strong> JSON schema validation saves more time than traditional testing libraries
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>FHIR Bundle resources:</strong> Transaction bundles provide better context than individual resources
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                      <strong>FHIR Search wisely:</strong> Reserve advanced search for complex operations; keep queries simple
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </small>
+    </div>
+</section>
+
+<section>
+    <h3>IoT & Workflow Integration Insights</h3>
+    <div style="font-size: 0.8em;">
+        <small>
+        <table>
+            <thead>
+                <tr>
+                    <th>IoT</th>
+                    <th>Workflow</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>C++ remains ideal for microcontroller compatibility between PIC, AVR (ATMega) and ESP32</td>
+                    <td>Multiple options to choose node-red, n8n, Apache Airflow, etc.,</td>
+                </tr>
+                <tr>
+                    <td>No mature open-source FHIR libraries for C++</td>
+                    <td>Excellent for heterogeneous EHR systems and multi-database environments</td>
+                </tr>
+                <tr>
+                    <td>FHIR works over mutliple protocols like Bluetooth/MQTT/Zigbee but the payload could be big, so use a lightweight fhir resource or a server as middleware</td>
+                    <td>Some has graphic programming, so it's accessible for developers of all skill levels</td>
+                </tr>
+                <tr>
+                    <td>Not easy access or debugging</td>
+                    <td>Complex debugging</td>
+                </tr>
+            </tbody>
+        </table>
+        </small>
+    </div>
+</section>
+
+<section>
+    <h3>AI in FHIR: Tradeoffs</h3>
+    <div style="font-size: 0.8em;">
+      <small>
+        <table>
+            <thead>
+                <tr>
+                    <th>Advantages</th>
+                    <th>Challenges</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Cost-efficient:</strong> Saves development/time costs for data conversion</td>
+                    <td><strong>Hallucination risk:</strong> Requires validation tools for model outputs</td>
+                </tr>
+                <tr>
+                    <td><strong>Context-aware:</strong> Handles varied clinical expressions and text structures</td>
+                    <td><strong>Limited models:</strong> Few quality in open source local models trained on medical data</td>
+                </tr>
+                <tr>
+                    <td><strong>JSON-friendly:</strong> Naturally aligns with FHIR's JSON structure</td>
+                    <td><strong>Resource-intensive:</strong> High inference costs for typical hospital infrastructure</td>
+                </tr>
+                <tr>
+                    <td><strong>Affordable tuning:</strong> Open-source models can be fine-tuned cost-effectively</td>
+                    <td><strong>Expertise gap:</strong> Requires specialized AI/ML knowledge</td>
+                </tr>
+            </tbody>
+        </table>
+</small>
+    </div>
+</section>
+
+      </section>
+
+
+
+  <section>
+     <section data-background="./assets/imgs/fine.webp">
+        <h2></h2>
+        <p></p>
+      </section>
+ <section>
+  <p>
+<img src="./assets/imgs/hospital-la-fe.png" style="width: 25%"  alt="logo lafe">
+  </p>
+  <h3>Members of the IT Team</h3>
+  <small>
+  <ul>
+  <p>
+  Marisa,
+  Antonio,
+  Vicente,
+  Jose,
+  Celia,
+  Paco,
+  Lucas
+  </p>
+  </ul>
+  </small>
+</section>
+</section>
+
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+		<script src="reveal/dist/reveal.js"></script>
+		<script src="reveal/plugin/notes/notes.js"></script>
+		<script src="reveal/plugin/markdown/markdown.js"></script>
+		<script src="reveal/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

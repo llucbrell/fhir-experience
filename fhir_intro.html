@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>FHIR Basics</title>
+
+    <meta name="description" content="Basic elements of FHIR">
+    <meta name="author" content="Lucas Cerveró Beltrán">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="reveal/dist/reset.css">
+    <link rel="stylesheet" href="reveal/dist/reveal.css">
+    <link rel="stylesheet" href="reveal/dist/theme/league.css" id="theme">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="reveal/plugin/highlight/monokai.css">
+</head>
+<style>
+    .title #watermark-mongo {
+        display: none;
+    }
+
+    .title #watermark-lafe {
+        display: none;
+    }
+
+    .title #watermarks {
+        display: none;
+    }
+
+    .highlighted-color {
+        color: #FAA335;
+    }
+
+    .highlighted-color-2 {
+        color: #FAA335;
+    }
+
+    .highlighted-color-3 {
+        color: #FFF466;
+    }
+
+    .highlighted-chapter {
+        color: cornflowerblue;
+    }
+</style>
+
+<body>
+
+    <div class="reveal">
+
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <div id="watermarks">
+                <div id="watermark-mongo">
+                    <img src="./images/FHIR_logo.png" style="width: 45px; position: absolute; top: 85%; left: 9%;" alt="FHIR logo">
+                </div>
+                <div id="watermark-lafe"><img src="./images/hospital-la-fe.png" style="width: 100px; position: absolute; top: 85%; left: 0%;" alt="Hospital La Fe logo"></div>
+            </div>
+
+            <!--
+            ----------------------------------------------------------------------------------------------------
+                                            SLIDES
+            ----------------------------------------------------------------------------------------------------
+            -->
+
+            <section data-state="title">
+                <a href="http://www.hl7.org/fhir/" target="blank">
+                    <img src="./images/fhir-logo.png" alt="FHIR logo" style="height: 280px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+                </a>
+                <h3>Guide and Basics of the Specification</h3>
+                <p>
+                    <small>by <a href="https://gitlab.com/llucbrell/" target="blank">Lucas Cerveró</a> </small>
+                </p>
+            </section>
+
+            <!------------------------------------------------------------------------------------------------------------->
+            <section>
+
+                <section>
+                    <h3><b class="highlighted-chapter">Introduction</b></h3>
+                    <p>What is FHIR?</p>
+                    <small><span style="display: inline-block;" class="fragment fade-left">It's an acronym for Fast HealthCare Interoperability Resources</span></small>
+                    <small><span style="display: inline-block;" class="fragment fade-left">It is an open specification aimed at data transmission, modeling, and serialization, designed for rapid understanding and implementation</span></small>
+                    <small></small>
+                    <p><small><small><a href="http://hl7.org/fhir/directory.html" target="blank">FHIR Versions</a></small></small></p>
+                </section>
+
+            </section>
+
+            <!------------------------------------------------------------------------------------------------------------->
+            <section>
+                <section data-auto-animate>
+                    <h3><b class="highlighted-chapter">What does FHIR define?</b></h3>
+                    <p>With this specification, we define resources similarly to how URLs are defined on the internet.</p>
+                    <small>These <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL" target="blank">URLs</a> allow us to organize resources in a tree structure. Alt+Click for zoom.</small>
+                    <img src="./images/fhir_resources.png" alt="FHIR resources" style="height: 300px; margin: 0 auto 2rem auto; background: transparent;" class="demo-logo">
+                    <p><small><small><a href="http://hl7.org/fhir/resourcelist.html" target="blank">FHIR Resource List</a></small></small></p>
+                </section>
+                <section data-auto-animate>
+                    <h3>Resources</h3>
+                    <p>FHIR has extensive documentation, mainly focused on defining resources</p>
+                    <small>Through it, we can learn the most important aspects of a resource.</small>
+                    <img src="./images/fhir_resource_docs_options.PNG" alt="FHIR resource options" style="height: 250px; margin: 0 auto 0.5rem auto; background: transparent;" class="demo-logo">
+                    <small><span style="display: inline-block;" class="fragment fade-left">The content of the resource, examples of it (in XML, JSON, or Turtle), detailed descriptions of elements, mappings to other technologies, etc.</span></small>
+                </section>
+                <section data-auto-animate>
+                    <h3>Resources</h3>
+                    <small>If we explore the documentation further, we can see a list of resource elements, annotations, cardinality (if the number of elements is zero, one, etc.), the data type of each element, and a description that includes constraints.</small>
+                    <p><img src="./images/fhir_resource_arrow_structure.png" alt="FHIR resource structure" style="height: 150px; margin: 0 auto 0.5rem auto; background: transparent;" class="demo-logo"></p>
+                    <small>Explore the documentation for the <a href="http://hl7.org/fhir/patient.html" target="blank">resource "patient".</a></span></small>
+                </section>
+                <section data-auto-animate>
+                    <h3>Data Types</h3>
+                    <p>These are the building blocks of the specification</p>
+                    <small>
+                        <ol>
+                            <li>Primitive Data</li>
+                            <li>General Purpose Data</li>
+                            <li>Metadata Data</li>
+                            <li>Special Purpose Data</li>
+                        </ol>
+                        <p>
+                            <small>See <a href="https://www.hl7.org/fhir/datatypes.html">Complete Documentation</a></small>
+                        </p>
+                    </small>
+                </section>
+                <section data-auto-animate>
+                    <h3>Data Types</h3>
+                    <p>These are the building blocks of the specification</p>
+                    <small>
+                        <ol>
+                            <li>Primitive Data</li>
+                            <p>These are like data types in any programming language; they serve as the foundation for other data types.</p>
+                            <p>They are written in minorCamelCase, which means the first letter is lowercase and for the rest of the words, the first letter is uppercase.</p>
+                        </ol>
+                        <p>Example: <a href="https://www.hl7.org/fhir/datatypes.html#decimal" target="blank">decimal</a></p>
+                    </small>
+                </section>
+                <section data-auto-animate>
+                    <h3>Data Types</h3>
+                    <p>These are the building blocks of the specification</p>
+                    <small>
+                        <ol>
+                            <li>Primitive Data</li>
+                            <li>General Purpose Data</li>
+                            <p>These are types created from primitive types and/or others of the same kind</p>
+                            <p>They are written in MajorCamelCase, meaning the first letter of each word is uppercase.</p>
+                        </ol>
+                        <p>Example: <a href="https://www.hl7.org/fhir/datatypes.html#Quantity" target="blank">Quantity</a></p>
+                    </small>
+                </section>
+                <section data-auto-animate>
+                    <h3>Data Types</h3>
+                    <p>These are the building blocks of the specification</p>
+                    <small>
+                        <ol>
+                            <li>Primitive Data</li>
+                            <li>General Purpose Data</li>
+                            <li>Metadata Data</li>
+                            <p>These are data types often used with metadata resources</p>
+                            <p>They are written in MajorCamelCase.</p>
+                        </ol>
+                        <p>Example: <a href="https://www.hl7.org/fhir/metadatatypes.html#ContactDetail" target="blank">ContactDetail</a></p>
+                    </small>
+                </section>
+                <section data-auto-animate>
+                    <h3>Data Types</h3>
+                    <p>These are the building blocks of the specification</p>
+                    <small>
+                        <ol>
+                            <li>Primitive Data</li>
+                            <li>General Purpose Data</li>
+                            <li>Metadata Data</li>
+                            <li>Special Purpose Data</li>
+                            <p>These are defined for a specific purpose.</p>
+                            <p>They are written in MajorCamelCase.</p>
+                        </ol>
+                        <p>Example: <a href="https://www.hl7.org/fhir/references.html#Reference" target="blank">Reference</a></p>
+                    </small>
+                </section>
+                <section>
+                    <h3>FHIR Resource Example</h3>
+                    <p>Example of a Patient resource in JSON</p>
+                    <small>
+                        <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+{
+  "resourceType": "Person",
+  "id": "example",
+  "text": {
+    "status": "generated",
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR"
+          }
+        ]
+      },
+      "system": "urn:oid:1.2.36.146.595.217.0.1",
+      "value": "12345",
+      "period": {
+        "start": "2001-05-06"
+      },
+      "assigner": {
+        "display": "Acme Healthcare"
+      }
+    }
+  ],
+  "name": [
+    {
+      "use": "official",
+      "family": "Chalmers",
+      "given": [
+        "Peter",
+        "James"
+      ]
+    },
+    {
+      "use": "usual",
+      "given": [
+        "Jim"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "use": "home"
+    },
+    {
+      "system": "phone",
+      "value": "(03) 5555 6473",
+      "use": "work"
+    },
+    {
+      "system": "email",
+      "value": "Jim@example.org",
+      "use": "home"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1974-12-25",
+  "address": [
+    {
+      "use": "home",
+      "line": [
+        "534 Erewhon St"
+      ],
+      "city": "PleasantVille",
+      "state": "Vic",
+      "postalCode": "3999"
+    }
+  ],
+  "active": true,
+  "link": [
+    {
+      "target": {
+        "reference": "RelatedPerson/peter",
+        "display": "Peter Chalmers"
+      }
+    },
+    {
+      "target": {
+        "reference": "Patient/example",
+        "display": "Peter Chalmers"
+      }
+    }
+  ]
+}
+</code></pre></small>
+                </section>
+
+                <section>
+                    <h3>Extensions</h3>
+                    <p>Another thing that FHIR defines is how to extend the specification.</p>
+                    <p><small><span style="display: inline-block;" class="fragment fade-left">It sets <a href="http://hl7.org/fhir/extensibility.html" target="blank">rules</a> for extending the specification</span></small></p>
+                    <p><small><span style="display: inline-block;" class="fragment fade-left">It allows anyone to create new resources and customize them, adding new functionalities to the core of FHIR</span></small></p>
+                    <p><small><small><span style="display: inline-block;" class="fragment fade-left"><a href="https://registry.fhir.org/results?latestFilter=true" target="blank">Implementation Guide Registry</a></span></small></small></p>
+                </section>
+                <section>
+                    <h3>The Core and Implementation Guides</h3>
+                    <p>Implementation Guides (IG) are the way an organization specifies its data model using the FHIR core.</p>
+                    <small style="display: inline-block;" class="fragment fade-left">An example of this is the <a href="http://build.fhir.org/ig/hl7-eu/pcsp/artifacts.html" target="blank">SurPass implementation guide</a></small>
+                </section>
+            </section>
+
+            <!------------------------------------------------------------------------------------------------------------->
+            <section>
+                <section>
+                    <h3><b class="highlighted-chapter">What to Do with FHIR?</b></h3>
+                    <p>FHIR not only defines the model but also the way data transactions are conducted</p>
+                </section>
+                <section>
+                    <h3>Advantages of FHIR</h3>
+                    <small><span style="display: inline-block;" class="fragment fade-left">It uses a REST architecture with minimal modifications, making it easy to learn and implement</span></small>
+                    <small><span style="display: inline-block;" class="fragment fade-left">It extends the REST vocabulary, allowing more sophisticated resource searches</span></small>
+                    <small><span style="display: inline-block;" class="fragment fade-left">It is a communication and modeling standard that gives us everything we need to build our application</span></small>
+                    <small><span style="display: inline-block;" class="fragment fade-left">Provides toolkits for different programming languages, which helps a lot in implementing FHIR</span></small>
+                    <p><small><small><span style="display: inline-block;" class="fragment fade-left"><a href="http://hl7.org/fhir/http.html" target="blank">Documentation of the RESTful API</a></span></small></small></p>
+                </section>
+                <section data-auto-animate>
+                    <h3>HTTP Actions</h3>
+                    <p>FHIR uses the HTTP protocol for data transmission</p>
+                    <small><a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol" target="blank">HTTP</a> has a set of methods to handle data transmission</small>
+                    <small>GET, POST, PUT, and DELETE are the most important</small>
+                </section>
+                <section data-auto-animate>
+                    <h3>HTTP Actions</h3>
+                    <p>Types of verbs or actions</p>
+                    <small><b class="highlighted-color">GET</b> Used to retrieve a resource</small>
+                    <small>Equivalent to Read in the CRUD paradigm (Create-Read-Update-Delete)</small>
+                    <small><b class="highlighted-color">GET</b> http://myfhirserver/url/of/resource</small>
+                </section>
+                <section data-auto-animate>
+                    <h3>HTTP Actions</h3>
+                    <p>Types of verbs or actions</p>
+                    <small><b class="highlighted-color">POST</b> Used to create a new resource</small>
+                    <small>Equivalent to Create in the CRUD paradigm (Create-Read-Update-Delete)</small>
+                    <small><b class="highlighted-color">POST</b> http://myfhirserver/url/of/resource</small>
+                </section>
+                <section data-auto-animate>
+                    <h3>HTTP Actions</h3>
+                    <p>Types of verbs or actions</p>
+                    <small><b class="highlighted-color">PUT</b> Used to update a resource</small>
+                    <small>Equivalent to Update in the CRUD paradigm (Create-Read-Update-Delete)</small>
+                    <small><b class="highlighted-color">PUT</b> http://myfhirserver/url/of/resource</small>
+                </section>
+                <section data-auto-animate>
+                    <h3>HTTP Actions</h3>
+                    <p>Types of verbs or actions</p>
+                    <small><b class="highlighted-color">DELETE</b> Used to delete a resource</small>
+                    <small>Equivalent to Delete in the CRUD paradigm (Create-Read-Update-Delete)</small>
+                    <small><b class="highlighted-color">DELETE</b> http://myfhirserver/url/of/resource</small>
+                </section>
+                <section data-auto-animate>
+                    <h3>FHIR Actions</h3>
+                    <p>Remember that FHIR resources are organized like URLs</p>
+                    <img src="./images/fhir_resources.png" alt="FHIR resource organization" style="height: 300px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+                </section>
+                <section data-auto-animate>
+                    <h3>FHIR Actions</h3>
+                    <p>With FHIR, we can perform actions at different levels</p>
+                    <small><span style="display: inline-block;" class="fragment fade-left">Actions can affect the base (entire system), the level (all resources of a certain type), or instance (a particular resource).</span></small>
+                    <img src="./images/fhir_action_levels.png" alt="FHIR action levels" style="height: 300px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+                </section>
+                <section data-auto-animate>
+                    <h3>FHIR Actions</h3>
+                    <p>To do this, we use the URL</p>
+                    <small>VERB <b class="highlighted-color">[base]/</b><b class="highlighted-color-2">[level]/<b class="highlighted-color">[instance]</b></b></small>
+                    <small>GET <b class="highlighted-color">http://myfhirserver/baseR4/</b><b class="highlighted-color-2">patient/<b class="highlighted-color">63u62748493t237</b></b></small>
+                    <img src="./images/fhir_action_levels.png" alt="FHIR action levels" style="height: 300px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+                </section>
+                <section data-auto-animate>
+                    <h3>FHIR Actions</h3>
+                    <p>The REST API of FHIR allows us to perform these actions:</p>
+                </section>
+                <section data-auto-animate>
+                    <h3>FHIR Actions</h3>
+                    <p>Acting at the instance level</p>
+                    <small>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Schema</th>
+                                    <th>Example</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="http://hl7.org/fhir/http.html#read" target="blank">read</a></td>
+                                    <td><small>Reads the current state of a resource</small></td>
+                                    <td><small>GET [base]/[type]/[id] {?_format=[mime-type]}</small></td>
+                                    <td><small>GET http://hapi.fhir.org/baseR4/Patient/2653234</small></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://hl7.org/fhir/http.html#vread" target="blank">vread</a></td>
+                                    <td><small>Reads the state of a resource at a specific point in time</small></td>
+                                    <td><small>GET [base]/[type]/[id]/_history/[vid] {?_format=[mime-type]}</small></td>
+                                    <td><small>GET http://hapi.fhir.org/baseR4/Patient/2653234/_history/1</small></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://hl7.org/fhir/http.html#update" target="blank">update</a></td>
+                                    <td><small>Changes an existing resource (or creates one if it does not exist)</small></td>
+                                    <td><small>PUT [base]/[type]/[id] {?_format=[mime-type]}</small></td>
+                                    <td><small>PUT http://hapi.fhir.org/baseR4/Patient/2653234 [BODY --> Complete PatientObject]</small></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://hl7.org/fhir/http.html#patch" target="blank">patch</a></td>
+                                    <td><small>Changes an existing resource by providing only the updates</small></td>
+                                    <td><small>PATCH [base]/[type]/[id] {?_format=[mime-type]}</small></td>
+                                    <td><small>PATCH http://hapi.fhir.org/baseR4/Patient/2653234 [BODY --> Parts of PatientObject]</small></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://hl7.org/fhir/http.html#delete" target="blank">delete</a></td>
+                                    <td><small>Deletes a resource</small></td>
+                                    <td><small>DELETE [base]/[type]/[id]</small></td>
+                                    <td><small>DELETE http://hapi.fhir.org/baseR4/Patient/2653234</small></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="http://hl7.org/fhir/http.html#history" target="blank">history</a></td>
+                                    <td><small>Gets the history of a resource</small></td>
+                                    <td><small>GET [base]/[type]/[id]/_history{?[parameters]&_format=[mime-type]}</small></td>
+                                    <td><small>GET http://hapi.fhir.org/baseR4/Patient/2653234/_history</small></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </small>
+                </section>
+
+                <!-- More sections to continue adding content similar to original Spanish version -->
+
+                <section data-background="https://media.giphy.com/media/dbtDDSvWErdf2/giphy.gif">
+                    <h3 class="highlighted-chapter">FHIR! FHIR! Help me!</h3>
+                    <small class="highlighted-color">Looking forward to hearing from you Mr.HL7</small>
+                </section>
+
+            </div>
+
+    </div>
+
+    <script src="reveal/dist/reveal.js"></script>
+    <script src="reveal/plugin/zoom/zoom.js"></script>
+    <script src="reveal/plugin/notes/notes.js"></script>
+    <script src="reveal/plugin/search/search.js"></script>
+    <script src="reveal/plugin/markdown/markdown.js"></script>
+    <script src="reveal/plugin/highlight/highlight.js"></script>
+    <script>
+
+        // Also available as an ES module, see:
+        // https://revealjs.com/initialization/
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            center: true,
+            hash: true,
+
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+        });
+
+    </script>
+
+</body>
+
+</html>

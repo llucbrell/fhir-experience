@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+
+
+
+
+
+
+
+
+
+
+
+ <div class="reveal">
+    <div class="slides">
+      <!-- Título: Apuntes -->
+      <section>
+        <h1>Apuntes sobre Lit</h1>
+        <p>Celia y Lucas</p>
+      </section>
+
+      <!-- Diapositivas Verticales: Información del navegador -->
+      <section>
+        <!-- Diapositiva Padre -->
+        <section>
+          <h2>El navegador</h2>
+          <p>Puesto que ejecuta el código, es la parte fundamental de toda WPA reactiva o Web Page Application.</p>
+        </section>
+
+        <!-- Diapositivas Hijas (Verticales) -->
+<section>
+  <h2>Partes Fundamentales de un Navegador</h2>
+</section>
+
+<section>
+  <h3>Interfaz de Usuario</h3>
+  <p>Incluye la barra de direcciones, botones de navegación, favoritos, y más.</p>
+</section>
+
+<section>
+  <h3>Motor del Navegador</h3>
+  <p>Interpreta y ejecuta código HTML, CSS y JavaScript.</p>
+</section>
+
+<section>
+  <h3>Motor de Renderizado</h3>
+  <p>Procesa el código HTML y CSS y muestra el contenido visual de una página web.</p>
+</section>
+
+<section>
+  <h3>JavaScript Engine</h3>
+  <p>Ejecuta y maneja código JavaScript, permitiendo interactividad y dinamismo en las páginas web.</p>
+</section>
+<section>
+  <h3>Un poquito más de info sobre la web general</h3>
+  <p>Visita la <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works" target="_blank">documentación de MDN</a> para más detalles.</p>
+</section>
+
+<section>
+  <h2>¿Cómo interactuamos con el navegador?</h2>
+</section>
+
+<section>
+  <h3>El HTML como estructura</h3>
+  <p>El documento html es la estructura de lo que se muestra como interfaz de usuario, es decir la página web que todos conocemos.</p>
+</section>
+
+<section>
+  <h3>El HTML como estructura</h3>
+  <p>HTML (HyperText Markup Language) es el lenguaje de marcado estándar para crear la estructura de las páginas web.</p>
+</section>
+
+<section>
+  <h3>El HTML como estructura</h3>
+  <p>El navegador interpreta el HTML para construir el DOM, que es el esqueleto de la página sobre el que se aplican los estilos CSS y la interactividad con JavaScript.</p>
+</section>
+
+<section>
+  <h3>El HTML como estructura</h3>
+  <h4>Más sobre HTML</h4>
+  <ul>
+    <li><a href="#html-extra">Siguiente-HTML</a>: Contenido extra añadido a la presentación.</li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN Web Docs</a>: Documentación exhaustiva sobre HTML.</li>
+    <li><a href="https://www.w3schools.com/html/" target="_blank">W3Schools</a>: Tutoriales y referencias de HTML.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>CSS para decorar</h3>
+  <p>El navegador aplica hojas de estilo CSS para dar formato y disposición visual a los elementos del DOM, permitiendo una amplia personalización del diseño y comportamiento de la página.</p>
+</section>
+
+<section>
+  <h3>CSS para decorar</h3>
+  <p>CSS (Cascading Style Sheets) es un lenguaje de hojas de estilo utilizado para describir la presentación de un documento escrito en HTML o XML.</p>
+</section>
+
+<section>
+  <h3>CSS para decorar</h3>
+  <h4>Más sobre CSS</h4>
+  <ul>
+    <li><a href="#css-extra">Siguiente-CSS</a>: Contenido extra añadido a la presentación.</li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN Web Docs</a>: Documentación exhaustiva sobre HTML.</li>
+    <li><a href="https://www.w3schools.com/html/" target="_blank">W3Schools</a>: Tutoriales y referencias de HTML.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>APIs y DOM para programar</h3>
+  <p>Son las interfaces de programación que utilizamos para la interacción de los diferentes elementos. Es la forma de conectar Javascript y el contenido y estructura de la página.</p>
+</section>
+
+<section>
+  <h3>APIs y DOM para programar</h3>
+  <p>El Document Object Model (DOM) es una representación del documento (HTML) como un árbol de objetos.</p>
+</section>
+
+<section>
+  <h3>APIs y DOM para programar</h3>
+  <p>Las APIs de Javascript son las funciones y objetos que soporta nativamente el navegador para utilizar con Javascript. Las hay de muchos tipos y nos proporcionan acceso no sólo a programar sino también a recursos del navegador.</p>
+</section>
+
+<section>
+  <h3>APIs y DOM para programar</h3>
+  <h4>Más sobre DOM</h4>
+  <ul>
+    <li><a href="#dom-extra">Siguiente-DOM</a>: Contenido extra añadido a la presentación.</li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model" target="_blank">MDN Web Docs sobre DOM</a>: Documentación completa sobre el DOM.</li>
+    <li><a href="https://caniuse.com/" target="_blank">Can I Use</a>: Comprueba la compatibilidad del DOM en diferentes navegadores.</li>
+  </ul>
+</section>
+
+<section>
+  <h3>APIs y DOM para programar</h3>
+  <h4>Más sobre las APIS</h4>
+  <ul>
+    <li><a href="#js-extra">Siguiente-APIS</a>: Contenido extra añadido a la presentación.</li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank">MDN Web Docs sobre APIs de JavaScript</a>: Referencias detalladas de las APIs de JavaScript.</li>
+    <li><a href="https://caniuse.com/" target="_blank">Can I Use</a>: Verifica la compatibilidad de las APIs de JavaScript en diferentes navegadores.</li>
+  </ul>
+</section>
+
+
+
+
+
+
+		
+</section>
+
+
+
+      <!-- Diapositivas Verticales: Introducción a Lit -->
+      <section>
+        <!-- Diapositiva Padre -->
+        <section>
+          <h2>Introducción a Lit</h2>
+          <p>Lit es una biblioteca de JavaScript moderna para crear aplicaciones web y componentes rápidos, ligeros y reactivos.</p>
+        </section>
+
+        <!-- Diapositivas Hijas (Verticales) -->
+		<section>
+          <h2>¿Y eso qué es?</h2>
+          <p>Un componente web, es una piececita de interfaz gráfica que se pueda reutilizar.</p>
+          <p>Lit nos facilita el uso de una serie de APIs (Custom elements, Shadow DOM y ) de JS que se pueden utilizar para crear componentes web universales. Es decir, que funcionen en cualquier navegador moderno.</p>
+    	  <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_components" target="_blank">Web Components</a></p>
+          
+        </section>
+		<section>
+          <h2>¿Y para qué?</h2>
+          <p>Antes de Lit, crear una interfaz gráfica web que fuera compleja llevaba mucho tiempo y esfuerzo.</p>
+          <p>Por eso se crearon frameworks como Angular, React y Vue.js</p>
+          <p>La mejora que supone lit, es en el aprendizaje y que luego, al crear componentes "universales" se pueden utilizar también con Angular, React y Vue sin morir en el intento.</p>
+        </section>
+        <section>
+          <h3>Características Principales de Lit</h3>
+          <ul>
+            <li>Rápido y Eficiente</li>
+            <li>Fácil de Aprender</li>
+            <li>Componentes Reutilizables</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Partes Principales de Lit</h3>
+          <ol>
+            <li>LitElement</li>
+            <li>LitHTML</li>
+          </ol>
+        </section>
+        <section>
+          <h3>Ciclo de Vida de un Componente Lit</h3>
+          <p>Creación, Conexión al DOM, Actualización, Desconexión</p>
+        </section>
+        <section>
+          <h3>Comenzando con Lit</h3>
+          <p>Instalación y ejemplo de código básico.</p>
+		    <my-timer duration="7"></my-timer>
+
+        </section>
+      </section>
+
+      <!-- Más Diapositivas Horizontales -->
+
+
+
+
+<!-- INICIO Contenido extra ----------------------------------------------------------------------------->
+
+      <section>
+        <!-- Diapositiva Padre -->
+        <section>
+          <h2>Contenido Extra</h2>
+          <p>Continúa hacia bajo y encontrarás contenido extra.</p>
+        </section>
+
+        <!-- Diapositivas Hijas (Verticales) -->
+
+<section id="dom-extra">
+  <h2>El DOM</h2>
+</section>
+
+<section>
+  <h3>¿Qué es el DOM?</h3>
+  <p>El Document Object Model (DOM) es una representación del documento (HTML) como un árbol de objetos.</p>
+  <p>Para interactuar con él se pueden hacer múltiples acciones, entre ellas desatacan...</p>
+</section>
+
+<section>
+  <h3>Seleccionar Elementos</h3>
+  <pre><code data-trim data-noescape class="language-javascript">
+document.getElementById('id');
+document.querySelector('.clase');
+  </code></pre>
+</section>
+
+<section>
+  <h3>Modificar Elementos</h3>
+  <pre><code data-trim data-noescape class="language-javascript">
+elemento.textContent = 'Nuevo texto';
+elemento.style.color = 'blue';
+  </code></pre>
+</section>
+
+<section>
+  <h3>Crear y Añadir Elementos</h3>
+  <pre><code data-trim data-noescape class="language-javascript">
+let nuevoDiv = document.createElement('div');
+document.body.appendChild(nuevoDiv);
+  </code></pre>
+</section>
+
+<section>
+  <h3>Eventos en el DOM</h3>
+  <pre><code data-trim data-noescape class="language-javascript">
+elemento.addEventListener('click', function() {
+  alert('Elemento clickado');
+});
+  </code></pre>
+</section>
+<section>
+  <h3>CSS para decorar</h3>
+  <h4>CSS y sus Selectores</h4>
+  <h5>Tipos de Selectores en CSS</h5>
+  <ul>
+    <li><strong>Selector de etiquetas:</strong> Selecciona elementos por su nombre de etiqueta.</li>
+    <li><strong>Selector de clase:</strong> Selecciona elementos con una clase específica (prefijo .).</li>
+    <li><strong>Selector de ID:</strong> Selecciona un elemento único con un ID específico (prefijo #).</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Introducción a CSS y HTML</h2>
+  <p>HTML estructura el contenido de la web, mientras que CSS define su presentación visual.</p>
+</section>
+
+<section>
+  <h3>Enlazar CSS a HTML</h3>
+  <p>Usamos la etiqueta &lt;link&gt; para conectar un archivo CSS externo.</p>
+  <pre><code data-trim data-noescape class="language-html">
+&lt;link rel="stylesheet" href="estilos.css"&gt;
+  </code></pre>
+</section>
+
+<section>
+  <h3>Selectores y Propiedades</h3>
+  <p>Los selectores definen a qué elementos se aplican los estilos. Las propiedades definen qué estilos aplicar.</p>
+  <pre><code data-trim data-noescape class="language-css">
+/* Aplica texto rojo a todos los párrafos */
+p {
+  color: red;
+}
+  </code></pre>
+</section>
+
+<section>
+  <h3>Estilos en Cascada y Herencia</h3>
+  <p>Los estilos se aplican en orden de especificidad, y algunos estilos se heredan de elementos padres a hijos.</p>
+</section>
+
+<section>
+  <h3>Estilos en Línea vs. Externos</h3>
+  <p>Los estilos en línea se aplican directamente en el HTML, mientras que los externos se mantienen en archivos separados.</p>
+  <pre><code data-trim data-noescape class="language-html">
+&lt;!-- Estilo en línea --&gt;
+&lt;p style="color: blue;"&gt;Texto azul&lt;/p&gt;
+  </code></pre>
+</section>
+
+<section>
+  <h3>Preferencias de Estilo en el Navegador</h3>
+  <p>El navegador sigue la regla de "el último en llegar gana" para estilos en conflicto, priorizando estilos en línea, luego internos y finalmente externos.</p>
+</section>
+
+<section>
+  <h3>Media Queries</h3>
+  <p>Permiten aplicar estilos según las características del dispositivo, como el ancho de la ventana del navegador.</p>
+  <pre><code data-trim data-noescape class="language-css">
+@media (min-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+  </code></pre>
+</section>
+
+<section>
+  <h3>Flexbox y Grid</h3>
+  <p>Sistemas de diseño para crear interfaces complejas y responsivas.</p>
+  <pre><code data-trim data-noescape class="language-css">
+/* Ejemplo de Flexbox */
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Ejemplo de Grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+  </code></pre>
+</section>
+
+<section>
+  <h3>Transiciones y Animaciones</h3>
+  <p>Agrega interactividad visual a tu página con transiciones suaves y animaciones.</p>
+  <pre><code data-trim data-noescape class="language-css">
+/* Ejemplo de Transición */
+.hover-me:hover {
+  transition: transform 0.5s;
+  transform: scale(1.1);
+}
+
+/* Ejemplo de Animación */
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+.animated {
+  animation-name: example;
+  animation-duration: 4s;
+}
+  </code></pre>
+</section>
+
+<section>
+  <h3>Variables CSS</h3>
+  <p>Hacen que las hojas de estilo sean más manejables al permitir reutilizar valores en tus estilos.</p>
+  <pre><code data-trim data-noescape class="language-css">
+:root {
+  --main-color: green;
+}
+
+elemento {
+  color: var(--main-color);
+}
+  </code></pre>
+</section>
+
+<section>
+  <h3>Pseudo-clases y Pseudo-elementos</h3>
+  <p>Usa pseudo-clases para estilos en estados específicos y pseudo-elementos para partes específicas de elementos.</p>
+</section>
+
+<section>
+  <h3>Modelo de caja de CSS</h3>
+  <p>Entiende cómo el ancho, alto, margen, borde y relleno afectan al espacio que ocupa un elemento.</p>
+</section>
+
+<section>
+  <h3>Prioridad y Especificidad</h3>
+  <p>Explora cómo se calcula la especificidad y su impacto en la aplicación de estilos.</p>
+</section>
+
+<section>
+  <h3>Herramientas de Desarrollador</h3>
+  <p>Aprende a usar las herramientas del navegador para depurar y experimentar con CSS.</p>
+</section>
+
+<section>
+  <h3>Tendencias Actuales en CSS</h3>
+  <p>Descubre enfoques modernos como CSS-in-JS, frameworks y metodologías de organización de estilos.</p>
+</section>
+<section>
+  <h2>Pseudo-clases y Pseudo-elementos</h2>
+</section>
+
+<section>
+  <h3>¿Qué son las Pseudo-clases?</h3>
+  <p>Las pseudo-clases son palabras clave que se añaden a los selectores y especifican un estado especial del elemento seleccionado. Por ejemplo, :hover se aplica cuando el usuario señala un elemento.</p>
+  <pre><code data-trim data-noescape class="language-css">
+a:hover {
+  color: blue;
+}
+  </code></pre>
+</section>
+
+<section>
+  <h3>¿Qué son los Pseudo-elementos?</h3>
+  <p>Los pseudo-elementos permiten estilizar partes específicas de un elemento. Por ejemplo, ::first-line selecciona la primera línea de un párrafo.</p>
+  <pre><code data-trim data-noescape class="language-css">
+p::first-line {
+  font-weight: bold;
+}
+  </code></pre>
+</section>
+<section>
+  <h3>Ejemplos Comunes de Pseudo-clases</h3>
+  <p>:active, :focus, :first-child son algunas de las pseudo-clases más usadas para añadir interactividad y estructura a tu sitio web.</p>
+  <pre><code data-trim data-noescape class="language-css">
+button:focus {
+  background-color: lightblue;
+}
+
+li:first-child {
+  font-size: 120%;
+}
+  </code></pre>
+</section>
+
+<section>
+  <h3>Ejemplos Comunes de Pseudo-elementos</h3>
+  <p>::after y ::before se utilizan para insertar contenido antes o después del contenido de un elemento.</p>
+  <pre><code data-trim data-noescape class="language-css">
+p::before {
+  content: "Inicio: ";
+}
+
+p::after {
+  content: " Fin.";
+}
+  </code></pre>
+</section>
+<section>
+  <h2>Modelo de Caja de CSS</h2>
+</section>
+
+<section>
+  <h3>¿Qué es el Modelo de Caja?</h3>
+  <p>En CSS, cada elemento se representa como una caja rectangular, con su contenido, relleno, borde y margen.</p>
+</section>
+<section>
+  <h3>Componentes del Modelo de Caja</h3>
+  <p>Cada caja tiene cuatro áreas: contenido, relleno (padding), borde (border) y margen (margin).</p>
+</section>
+
+<section id="js-extra">
+  <h3>APIs Web: Fetch para peticiones HTTP</h3>
+  <pre><code data-trim data-noescape class="language-javascript">
+fetch('url')
+  .then(response => response.json())
+  .then(data => console.log(data));
+  </code></pre>
+</section>
+
+<section>
+  <h3>LocalStorage API</h3>
+  <pre><code data-trim data-noescape class="language-javascript">
+localStorage.setItem('clave', 'valor');
+console.log(localStorage.getItem('clave'));
+  </code></pre>
+</section>
+
+<section>
+  <h3>Canvas API</h3>
+  <p>Permite dibujar gráficos y animaciones.</p>
+</section>
+
+<section>
+  <h3>Web Workers API</h3>
+  <p>Ejecuta scripts en un hilo de fondo sin afectar la performance de la página.</p>
+</section>
+
+<section>
+  <h3>Enlaces para Profundizar</h3>
+  <p>Consulta la <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model" target="_blank">documentación de MDN sobre el DOM</a> y la <a href="https://developer.mozilla.org/en-US/docs/Web/API" target="_blank">documentación sobre APIs Web</a> para más detalles.</p>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-----------------------------------------FIN EXTRa---------------------------------------->
+
+
+
+      </section>
+      <section>
+        <h2>Más Sobre Lit</h2>
+        <p>Contenido adicional y recursos.</p>
+      </section>
+      <!-- Añade tantas secciones como necesites -->
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+		<script src="/components/my-timer.js" type="module"></script>
+	</body>
+</html>

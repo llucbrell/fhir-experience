@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Paciente FHIR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            max-height: 500px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            font-weight: 700;
+            color: #555;
+        }
+        input {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #configButton {
+            margin-top: 20px;
+            padding: 8px;
+            background-color: #6c757d;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #configButton:hover {
+            background-color: #5a6268;
+        }
+        #configContainer {
+            display: none;
+            margin-top: 20px;
+        }
+        #serverUrl {
+            width: calc(100% - 20px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crear Paciente FHIR</h1>
+        <form id="patientForm">
+            <label for="firstName">Nombre:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Apellido:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="phone">Teléfono:</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="birthDate">Fecha de nacimiento:</label>
+            <input type="date" id="birthDate" name="birthDate" required>
+
+            <button type="button" onclick="createPatient()">Crear Paciente</button>
+            <button type="button" id="configButton" onclick="toggleConfig()">Configuración</button>
+        </form>
+        <div id="configContainer">
+            <label for="serverUrl">URL del servidor FHIR:</label>
+            <input type="text" id="serverUrl" name="serverUrl" value="https://ejemplo-servidor-fhir.com/fhir/Patient">
+        </div>
+    </div>
+
+    <script>
+        function toggleConfig() {
+            const configContainer = document.getElementById("configContainer");
+            if (configContainer.style.display === "none" || configContainer.style.display === "") {
+                configContainer.style.display = "block";
+            } else {
+                configContainer.style.display = "none";
+            }
+        }
+
+        function createPatient() {
+            // Obtiene los valores del formulario
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+            const phone = document.getElementById("phone").value;
+            const email = document.getElementById("email").value;
+            const birthDate = document.getElementById("birthDate").value;
+            const serverUrl = document.getElementById("serverUrl").value;
+
+            // Crea el recurso Patient en formato FHIR
+            const patient = {
+                resourceType: "Patient",
+                name: [
+                    {
+                        family: lastName,
+                        given: [firstName]
+                    }
+                ],
+                telecom: [],
+                birthDate: birthDate
+            };
+
+            // Agrega los datos de contacto si están presentes
+            if (phone) {
+                patient.telecom.push({
+                    system: "phone",
+                    value: phone,
+                    use: "mobile"
+                });
+            }
+
+            if (email) {
+                patient.telecom.push({
+                    system: "email",
+                    value: email
+                });
+            }
+
+            // Convierte el recurso a JSON
+            const patientJson = JSON.stringify(patient);
+
+            // Envia el recurso al servidor FHIR
+            fetch(serverUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/fhir+json"
+                },
+                body: patientJson
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Paciente creado exitosamente");
+                } else {
+                    alert("Error al crear el paciente: " + response.status);
+                }
+            })
+            .catch(error => {
+                alert("Error al conectar con el servidor: " + error);
+            });
+        }
+    </script>
+</body>
+</html>
