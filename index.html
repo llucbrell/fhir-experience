@@ -63,7 +63,7 @@
   <div style="font-size: 0.8em;">
     <ul>
       <li class="fragment">
-        Challenges and integration strategies
+        Challenges
       </li>
       <li class="fragment">
         Experiments and tests conducted before, during, and after implementation
@@ -86,7 +86,7 @@
 <section>
     <section>
         <h2>Challenges</h2>
-        <p>Types of challenges when working with FHIR</p>
+        <p>Different types of challenges when working with FHIR</p>
         <div style="font-size: 0.8em;">
             <ol>
                 <li>
@@ -94,12 +94,6 @@
                 </li>
                 <li>
                     <a href="#unstructured">EHR unstructured data conversion</a>
-                </li>
-                <li>
-                    <a href="#app-integration">Application integration</a>
-                </li>
-                <li>
-                    <a href="#system-integration">System integration</a>
                 </li>
                 <li>
                     <a href="#transformation-check">Data transformation validation</a>
@@ -121,13 +115,13 @@
                 <li>Application design</li>
                 <li>Database investigation</li>
                 <li>Codification system conversion</li>
-                <li>And so on..</li>
+                <li>And so on.. (we talked about it before)</li>
             </ul>
             </small>
 
         </p>
         <p>
-            An app-by-app approach may prove inefficient for this task.
+            An app-by-app approach may prove inefficient for a big system integration.
         </p>
     </div>
 </section>
@@ -144,50 +138,15 @@
             <li>Varying text structures and information organization</li>
             <li>Diverse expressions for the same concepts in plain text</li>
             <li>Limited, different or partially codification at the same documents</li>
-            <li>And many more</li>
+            <li>And many more..</li>
         </ul>
         </small>
         <p>
-            Converting all this to FHIR standards is a complex undertaking.
-        </p>
-    </div>
-</section>
-<section>
-    <h3>Integrations</h3>
-    <div style="font-size: 0.8em;">
-        <p>We found some possible paths for integrations</p>
-    </div>
-</section>
-
-<section id="app-integration">
-    <h3>Small and Focused Application Integration</h3>
-    <div style="font-size: 0.8em;">
-        <p>
-            While manageable for small-scale, short-term projects, this approach has its pros and cons
-        </p>
-        <p>
-            Single-application integration could become inefficient and difficult to scale
+            Converting this type of data to FHIR standards is a complex undertaking.
         </p>
     </div>
 </section>
 
-<section id="system-integration">
-    <h3>Bigger Partial System Integration</h3>
-    <div style="font-size: 0.8em;">
-        <p>
-            Similar to unstructured data challenges, this involves:
-        </p>
-        <small>
-        <ul>
-            <li>Multiple formats and structures</li>
-            <li>Diverse codification systems</li>
-        </ul>
-        </small>
-        <p>
-            Very challenging and time consuming, nearly impossible to achive a complete unnstructured EHR conversion
-        </p>
-    </div>
-</section>
 
 <section id="transformation-check">
     <h3>Data Conversion Validation</h3>
@@ -366,7 +325,7 @@ Due to the sensitive nature of clinical data, FHIR requires robust systems to en
                 </tr>
                 <tr>
                     <td>
-                        <strong>Libraries over prototypes:</strong> Prefer mature libraries (HAPI FHIR) to quick Python prototypes for production
+                        <strong>Libraries over prototypes:</strong> Prefer mature libraries (HAPI FHIR) over quick Python prototypes for production
                     </td>
                 </tr>
                 <tr>
